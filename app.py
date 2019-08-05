@@ -8,7 +8,7 @@ from kivy.uix.screenmanager import Screen, ScreenManager, NoTransition
 from kivy.uix.popup import Popup
 from kivy.lang import Builder
 
-result_num1, result_num2, result_num3 = random.sample(range(0, 21), 3)
+result_num1, result_num2, result_num3 = random.sample(range(0, 5), 3)
 code_dg1 = random.randint(1, 8)
 code_dg2 = random.randint(1, 8)
 code_dg3 = random.randint(1, 8)

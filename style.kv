@@ -6,21 +6,21 @@
 
         Label:
             text:"Decode Faces"
-            font_size: (root.width**2 + root.height**2) / 13**4
+            font_size: 36
             pos_hint: {"x":0.33, "top":0.75}
             size_hint: 0.35, 0.15
 
         Button:
             pos_hint:{"x":0.4,"y":0.35}
             size_hint: 0.2, 0.1
-            font_size: (root.width**2 + root.height**2) / 14**4
+            font_size: 28
             text: "Start"
             on_release:
                 root.start_button()
         Button:
             pos_hint:{"x":0.4,"y":0.2}
             size_hint: 0.2, 0.1
-            font_size: (root.width**2 + root.height**2) / 14**4
+            font_size: 28
             text: "Quit"
             on_release:
                 root.quit_button()
@@ -34,32 +34,72 @@
 
         Label:
             text:"Rule"
-            font_size: (root.width**2 + root.height**2) / 13**4
-            pos_hint: {"x":0.33, "top":0.95}
+            font_size: 30
+            pos_hint: {"x":0.33, "top":0.9}
             size_hint: 0.35, 0.15
         Label:
             text:"1. You are going to solve a puzzle (a 3-digit code).\n2. You only have 3 chances.\n3. After each attempt, there are some hints for you."
-            pos_hint: {"x":0.33, "top":0.84}
-            font_size: 18
+            pos_hint: {"x":0.33, "top":0.78}
+            font_size: 20
             size_hint: 0.35, 0.15
 
         Label:
             text:"Hint"
-            font_size: (root.width**2 + root.height**2) / 13**4
-            pos_hint: {"x":0.33, "top":0.69}
+            font_size: 30
+            pos_hint: {"x":0.33, "top":0.58}
             size_hint: 0.35, 0.15
         Image:
-            id: gif
-            source: 'results/8/GIF.gif'
-            pos_hint: {"x":0.35, "top":0.55}
-            size_hint: .3, .3
-            allow_stretch: True
-            anim_loop: 10
+            source: 'results/0/0.png'
+            pos_hint: {"x":0.05, "top":0.45}
+            size_hint: .12, .12
+        Image:
+            source: 'results/0/1.png'
+            pos_hint: {"x":0.14, "top":0.45}
+            size_hint: .12, .12
+        Image:
+            source: 'results/0/2.png'
+            pos_hint: {"x":0.23, "top":0.45}
+            size_hint: .12, .12
+        Image:
+            source: 'results/0/3.png'
+            pos_hint: {"x":0.32, "top":0.45}
+            size_hint: .12, .12
+        Image:
+            source: 'results/0/4.png'
+            pos_hint: {"x":0.41, "top":0.45}
+            size_hint: .12, .12
+        Image:
+            source: 'results/0/5.png'
+            pos_hint: {"x":0.5, "top":0.45}
+            size_hint: .12, .12
+        Image:
+            source: 'results/0/6.png'
+            pos_hint: {"x":0.59, "top":0.45}
+            size_hint: .12, .12
+        Image:
+            source: 'results/0/7.png'
+            pos_hint: {"x":0.68, "top":0.45}
+            size_hint: .12, .12
+        Image:
+            source: 'results/0/8.png'
+            pos_hint: {"x":0.77, "top":0.45}
+            size_hint: .12, .12
+        Image:
+            source: 'results/0/9.png'
+            pos_hint: {"x":0.86, "top":0.45}
+            size_hint: .12, .12
+
+        Label:
+            text:"0"
+            pos_hint: {"x":-0.39, "y":-0.2}
+        Label:
+            text:"9"
+            pos_hint: {"x":0.42, "y":-0.2}
 
         Button:
             pos_hint:{"x":0.4,"y":0.1}
             size_hint: 0.2, 0.1
-            font_size: (root.width**2 + root.height**2) / 14**4
+            font_size: 28
             text: "Go"
             on_release:
                 root.button()
@@ -82,7 +122,7 @@
             text: "Quit"
             pos_hint:{"x":0.4,"y":0.2}
             size_hint: 0.2, 0.1
-            font_size: (root.width**2 + root.height**2) / 14**4
+            font_size: 28
             on_release:
                 root.quit_button()
 
@@ -105,7 +145,7 @@
             text: "Quit"
             pos_hint:{"x":0.4,"y":0.2}
             size_hint: 0.2, 0.1
-            font_size: (root.width**2 + root.height**2) / 14**4
+            font_size: 28
             on_release:
                 root.quit_button()
 
