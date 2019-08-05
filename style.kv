@@ -1,0 +1,482 @@
+<MenuPage>:
+    name: "Menu"
+
+    FloatLayout:
+        cols:1
+
+        Label:
+            text:"Decode Faces"
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.33, "top":0.75}
+            size_hint: 0.35, 0.15
+
+        Button:
+            pos_hint:{"x":0.4,"y":0.35}
+            size_hint: 0.2, 0.1
+            font_size: (root.width**2 + root.height**2) / 14**4
+            text: "Start"
+            on_release:
+                root.start_button()
+        Button:
+            pos_hint:{"x":0.4,"y":0.2}
+            size_hint: 0.2, 0.1
+            font_size: (root.width**2 + root.height**2) / 14**4
+            text: "Quit"
+            on_release:
+                root.quit_button()
+
+
+<RulePage>:
+    name:"Rule"
+
+    FloatLayout:
+        cols:1
+
+        Label:
+            text:"Rule"
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.33, "top":0.95}
+            size_hint: 0.35, 0.15
+        Label:
+            text:"1. You are going to solve a puzzle (a 3-digit code).\n2. You only have 3 chances.\n3. After each attempt, there are some hints for you."
+            pos_hint: {"x":0.33, "top":0.84}
+            font_size: 18
+            size_hint: 0.35, 0.15
+
+        Label:
+            text:"Hint"
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.33, "top":0.69}
+            size_hint: 0.35, 0.15
+        Image:
+            id: gif
+            source: 'results/8/GIF.gif'
+            pos_hint: {"x":0.35, "top":0.55}
+            size_hint: .3, .3
+            allow_stretch: True
+            anim_loop: 10
+
+        Button:
+            pos_hint:{"x":0.4,"y":0.1}
+            size_hint: 0.2, 0.1
+            font_size: (root.width**2 + root.height**2) / 14**4
+            text: "Go"
+            on_release:
+                root.button()
+
+<SuccessPage>:
+    name:"Success"
+
+    FloatLayout:
+        cols:1
+
+        Label:
+            text:"Congratulations!"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint:{"y":0.15}
+        Label:
+            text:"You solve the puzzle."
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint:{"y":0.05}
+        Button:
+            text: "Quit"
+            pos_hint:{"x":0.4,"y":0.2}
+            size_hint: 0.2, 0.1
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.quit_button()
+
+<FailPage>:
+    name:"Fail"
+
+    FloatLayout:
+        cols:1
+
+        Label:
+            text:"Sorry, you fail to solve the puzzle."
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint:{"y":0.2}
+        Label:
+            text: root.show_code()
+            font_size: (root.width**2 + root.height**2) / 14**4
+            pos_hint:{"y":0}
+
+        Button:
+            text: "Quit"
+            pos_hint:{"x":0.4,"y":0.2}
+            size_hint: 0.2, 0.1
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.quit_button()
+
+<GamePage0>:
+    name:"Game0"
+
+    canvas:
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.98,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.98
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.69,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.69
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.4,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.4
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.11,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.11
+
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.98,\
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.11
+        Line:
+            points:
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.98,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.11
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            cols:3
+
+            Image:
+                source: root.get_img1_path(0)
+                pos_hint: {"x": 0.12, "top":0.96}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img1_path(1)
+                pos_hint: {"x": 0.39, "top":0.96}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img1_path(9)
+                pos_hint: {"x": 0.66, "top":0.96}
+                size_hint: .23, .23
+            Label:
+                text: "0"
+                pos_hint: {"x": -0.27, "y":0.21}
+                font_size: 16
+            Label:
+                text: "?"
+                pos_hint: {"x": 0.005, "y":0.21}
+            Label:
+                text: "9"
+                pos_hint: {"x": 0.28, "y":0.21}
+
+
+            Image:
+                source: root.get_img2_path(0)
+                pos_hint: {"x": 0.12, "top":0.67}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img2_path(2)
+                pos_hint: {"x": 0.39, "top":0.67}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img2_path(9)
+                pos_hint: {"x": 0.66, "top":0.67}
+                size_hint: .23, .23
+            Label:
+                text: "0"
+                pos_hint: {"x": -0.27, "y":-0.08}
+            Label:
+                text: "?"
+                pos_hint: {"x": 0.005, "y":-0.08}
+            Label:
+                text: "9"
+                pos_hint: {"x": 0.28, "y":-0.08}
+
+            Image:
+                source: root.get_img3_path(0)
+                pos_hint: {"x": 0.12, "top":0.38}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img3_path(3)
+                pos_hint: {"x": 0.39, "top":0.38}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img3_path(9)
+                pos_hint: {"x": 0.66, "top":0.38}
+                size_hint: .23, .23
+            Label:
+                text: "0"
+                pos_hint: {"x": -0.27, "y":-0.37}
+            Label:
+                text: "?"
+                pos_hint: {"x": 0.005, "y":-0.37}
+            Label:
+                text: "9"
+                pos_hint: {"x": 0.28, "y":-0.37}
+
+        Label:
+            text:"3-digit code: "
+            font_size: 20
+            pos_hint: {"x":0.25, "top":0.11}
+            size_hint: 0.2, 0.1
+        TextInput:
+            id: new_code
+            font_size: 22
+            multiline: False
+            pos_hint: {"x": 0.44, "top":0.09}
+            size_hint: 0.13, 0.06
+        Button:
+            pos_hint:{"x":0.62,"top":0.09}
+            size_hint: 0.12, 0.065
+            font_size: 22
+            text: "Submit"
+            on_release:
+                root.submit_button()
+
+
+<GamePage1>:
+    name:"Game1"
+
+    canvas:
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.98,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.98
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.69,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.69
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.4,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.4
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.11,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.11
+
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.98,\
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.11
+        Line:
+            points:
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.98,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.11
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            cols:3
+
+
+            Image:
+                source: root.get_img1_path(0)
+                pos_hint: {"x": 0.12, "top":0.96}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img1_path(1)
+                pos_hint: {"x": 0.39, "top":0.96}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img1_path(9)
+                pos_hint: {"x": 0.66, "top":0.96}
+                size_hint: .23, .23
+            Label:
+                text: root.get_lab1_text('0')
+                pos_hint: {"x": -0.27, "y":0.21}
+                font_size: 16
+            Label:
+                text: "?"
+                pos_hint: {"x": 0.005, "y":0.21}
+            Label:
+                text: root.get_lab1_text('9')
+                pos_hint: {"x": 0.28, "y":0.21}
+
+            Image:
+                source: root.get_img2_path(0)
+                pos_hint: {"x": 0.12, "top":0.67}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img2_path(2)
+                pos_hint: {"x": 0.39, "top":0.67}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img2_path(9)
+                pos_hint: {"x": 0.66, "top":0.67}
+                size_hint: .23, .23
+            Label:
+                text: root.get_lab2_text('0')
+                pos_hint: {"x": -0.27, "y":-0.08}
+            Label:
+                text: "?"
+                pos_hint: {"x": 0.005, "y":-0.08}
+            Label:
+                text: root.get_lab2_text('9')
+                pos_hint: {"x": 0.28, "y":-0.08}
+
+            Image:
+                source: root.get_img3_path(0)
+                pos_hint: {"x": 0.12, "top":0.38}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img3_path(3)
+                pos_hint: {"x": 0.39, "top":0.38}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img3_path(9)
+                pos_hint: {"x": 0.66, "top":0.38}
+                size_hint: .23, .23
+            Label:
+                text: root.get_lab3_text('0')
+                pos_hint: {"x": -0.27, "y":-0.37}
+            Label:
+                text: "?"
+                pos_hint: {"x": 0.005, "y":-0.37}
+            Label:
+                text: root.get_lab3_text('9')
+                pos_hint: {"x": 0.28, "y":-0.37}
+
+        Label:
+            text:"3-digit code: "
+            font_size: 20
+            pos_hint: {"x":0.25, "top":0.11}
+            size_hint: 0.2, 0.1
+        TextInput:
+            text: root.show_prev_input()
+            id: new_code
+            font_size: 22
+            multiline: False
+            pos_hint: {"x": 0.44, "top":0.09}
+            size_hint: 0.13, 0.06
+        Button:
+            pos_hint:{"x":0.62,"top":0.09}
+            size_hint: 0.12, 0.065
+            font_size: 22
+            text: "Submit"
+            on_release:
+                root.submit_button()
+
+
+<GamePage2>:
+    name:"Game2"
+
+    canvas:
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.98,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.98
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.69,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.69
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.4,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.4
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.11,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.11
+
+        Line:
+            points:
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.98,\
+                self.pos[0] + self.width*0.1, self.pos[1] + self.height*0.11
+        Line:
+            points:
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.98,\
+                self.pos[0] + self.width*0.9, self.pos[1] + self.height*0.11
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            cols:3
+
+            Image:
+                source: root.get_img1_path(0)
+                pos_hint: {"x": 0.12, "top":0.96}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img1_path(1)
+                pos_hint: {"x": 0.39, "top":0.96}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img1_path(9)
+                pos_hint: {"x": 0.66, "top":0.96}
+                size_hint: .23, .23
+            Label:
+                text: root.get_lab1_text('0')
+                pos_hint: {"x": -0.27, "y":0.21}
+                font_size: 16
+            Label:
+                text: "?"
+                pos_hint: {"x": 0.005, "y":0.21}
+            Label:
+                text: root.get_lab1_text('9')
+                pos_hint: {"x": 0.28, "y":0.21}
+
+            Image:
+                source: root.get_img2_path(0)
+                pos_hint: {"x": 0.12, "top":0.67}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img2_path(2)
+                pos_hint: {"x": 0.39, "top":0.67}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img2_path(9)
+                pos_hint: {"x": 0.66, "top":0.67}
+                size_hint: .23, .23
+            Label:
+                text: root.get_lab2_text('0')
+                pos_hint: {"x": -0.27, "y":-0.08}
+            Label:
+                text: "?"
+                pos_hint: {"x": 0.005, "y":-0.08}
+            Label:
+                text: root.get_lab2_text('9')
+                pos_hint: {"x": 0.28, "y":-0.08}
+
+            Image:
+                source: root.get_img3_path(0)
+                pos_hint: {"x": 0.12, "top":0.38}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img3_path(3)
+                pos_hint: {"x": 0.39, "top":0.38}
+                size_hint: .23, .23
+            Image:
+                source: root.get_img3_path(9)
+                pos_hint: {"x": 0.66, "top":0.38}
+                size_hint: .23, .23
+            Label:
+                text: root.get_lab3_text('0')
+                pos_hint: {"x": -0.27, "y":-0.37}
+            Label:
+                text: "?"
+                pos_hint: {"x": 0.005, "y":-0.37}
+            Label:
+                text: root.get_lab3_text('9')
+                pos_hint: {"x": 0.28, "y":-0.37}
+
+        Label:
+            text:"3-digit code: "
+            font_size: 20
+            pos_hint: {"x":0.25, "top":0.115}
+            size_hint: 0.2, 0.1
+        TextInput:
+            text: root.show_prev_input()
+            id: new_code
+            font_size: 22
+            multiline: False
+            pos_hint: {"x": 0.44, "top":0.095}
+            size_hint: 0.13, 0.06
+        Button:
+            pos_hint:{"x":0.62,"top":0.093}
+            size_hint: 0.12, 0.065
+            font_size: 22
+            text: "Submit"
+            on_release:
+                root.submit_button()
